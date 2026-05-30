@@ -321,6 +321,86 @@
 
     @media (max-width:940px){.hero-inner,.story-grid,.map-card,.dress-grid,.mood-grid,.rsvp-wrap{grid-template-columns:1fr}.hero-card{transform:none}.details-grid{grid-template-columns:1fr}.topbar{overflow:auto;justify-content:flex-start}.topbar::-webkit-scrollbar{display:none}.polaroids{grid-template-columns:1fr 1fr;gap:20px}.polaroid{max-width:100%}.polaroid.two{margin-top:44px}.mood-cards{grid-template-columns:1fr}}
     @media (max-width:640px){.container{width:min(100% - 22px,1120px)}.hero{padding:54px 0 96px}.hero-text{font-size:16px}.hero-photo-main,.hero-photo-main img{min-height:520px}section{padding:72px 0}.countdown{grid-template-columns:repeat(2,1fr)}.program-item{grid-template-columns:82px 18px 1fr;gap:14px}.time{font-size:26px}.two,.stats,.polaroids{grid-template-columns:1fr}.contact-card,.form-card,.dress-panel,.mood-card,.detail{padding:24px}.topbar a{font-size:10px;padding:9px 10px}.polaroid{max-width:320px;justify-self:center;padding-bottom:50px}.polaroid img{aspect-ratio:3/4}.polaroid.two{margin-top:12px}.invite-card p,.wish-card p{font-size:18px}}
+
+
+    /* Правки отображения v5: крупнее первый экран, аккуратнее история и фото */
+    html, body { width:100%; max-width:100%; }
+    .hero, section, footer { width:100%; display:block; }
+    .section-light { background:var(--paper); }
+
+    @media (max-width:1180px){
+      .hero{padding:58px 0 96px;}
+      .hero-inner{
+        grid-template-columns:1fr;
+        max-width:760px;
+        gap:34px;
+        text-align:center;
+      }
+      .hero-text{margin-left:auto;margin-right:auto;}
+      .hero-meta,.hero-actions{justify-content:center;}
+      .hero-card{max-width:540px;margin:0 auto;transform:none;}
+      .hero-photo-main,.hero-photo-main img{min-height:560px;}
+    }
+
+    @media (max-width:760px){
+      .hero h1{font-size:clamp(62px,18vw,110px);}
+      .hero-photo-main,.hero-photo-main img{min-height:500px;}
+      .photo-caption strong{font-size:28px;}
+    }
+
+    .polaroids{
+      display:grid !important;
+      grid-template-columns:repeat(2,minmax(240px,1fr));
+      gap:30px;
+      align-items:start;
+      justify-items:center;
+      min-height:auto !important;
+      padding:8px 0 18px;
+    }
+    .polaroid{
+      position:relative !important;
+      left:auto !important;
+      right:auto !important;
+      top:auto !important;
+      bottom:auto !important;
+      width:100% !important;
+      max-width:340px !important;
+    }
+    .polaroid img{
+      width:100% !important;
+      height:clamp(300px,42vw,420px) !important;
+      object-fit:cover !important;
+      object-position:center center !important;
+      display:block !important;
+      border-radius:14px !important;
+    }
+    .polaroid.one{justify-self:end;transform:rotate(-3deg) !important;}
+    .polaroid.two{justify-self:start;transform:rotate(3deg) !important;margin-top:56px !important;}
+
+    @media (max-width:1180px){
+      .story-grid{
+        grid-template-columns:1fr;
+        max-width:820px;
+        margin:0 auto;
+      }
+      .polaroids{order:1;}
+      .story-copy{order:2;}
+    }
+
+    @media (max-width:620px){
+      .polaroids{
+        grid-template-columns:1fr;
+        gap:22px;
+      }
+      .polaroid{max-width:330px !important;}
+      .polaroid.one,.polaroid.two{
+        justify-self:center;
+        margin-top:0 !important;
+        transform:rotate(0deg) !important;
+      }
+      .polaroid img{height:360px !important;}
+    }
+
   </style>
 </head>
 <body>
@@ -548,7 +628,7 @@
               <input type="hidden" name="submitted_at" id="submittedAtField" value="" />
               <button class="btn primary full" type="submit">Подтвердить участие</button>
               <div class="form-status" id="formStatus"></div>
-              <p class="form-note" id="formNote">Форма подключена к Google Таблице. Если вдруг отправка не сработает, можно написать Виталию в Telegram.</p>
+              <p class="form-note" id="formNote">Форма подключена к Google Таблице. Ответы ищите на листе «Ответы», комментарии — в колонке «Комментарий».</p>
               <iframe name="rsvpHiddenFrame" id="rsvpHiddenFrame" style="display:none;"></iframe>
             </form>
           </div>
