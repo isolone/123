@@ -865,3 +865,96 @@
   </script>
 </body>
 </html>
+
+<!-- v7 final hero override -->
+<style>
+  /* Финальная правка первого экрана: стабильные две колонки на ПК */
+  .hero{
+    min-height:100svh !important;
+    padding:64px 0 96px !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+  .hero-inner{
+    width:min(1160px, calc(100% - 56px)) !important;
+    margin:0 auto !important;
+    display:grid !important;
+    grid-template-columns:minmax(0, 1.02fr) minmax(360px, 470px) !important;
+    gap:clamp(38px, 5vw, 72px) !important;
+    align-items:center !important;
+    text-align:left !important;
+  }
+  .hero-inner > div:first-child{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    justify-self:start !important;
+    max-width:650px !important;
+  }
+  .hero-card{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    justify-self:end !important;
+    width:100% !important;
+    max-width:470px !important;
+    margin:0 !important;
+    transform:rotate(1deg) !important;
+  }
+  .hero h1{
+    font-size:clamp(78px, 8.5vw, 126px) !important;
+    line-height:.86 !important;
+    margin:0 !important;
+  }
+  .hero .amp{
+    font-size:.48em !important;
+    padding:.03em 0 .02em .06em !important;
+  }
+  .hero-text{
+    max-width:610px !important;
+    margin:26px 0 0 !important;
+    font-size:18px !important;
+    line-height:1.75 !important;
+  }
+  .hero-meta,
+  .hero-actions{
+    justify-content:flex-start !important;
+  }
+  .hero-actions{margin-top:30px !important;}
+  .hero-photo-main{
+    height:min(620px, 72vh) !important;
+    min-height:500px !important;
+  }
+  .hero-photo-main img{
+    width:100% !important;
+    height:100% !important;
+    min-height:0 !important;
+    object-fit:cover !important;
+    object-position:center top !important;
+  }
+
+  @media (max-width:900px){
+    .hero{padding:54px 0 92px !important;}
+    .hero-inner{
+      width:min(720px, calc(100% - 34px)) !important;
+      grid-template-columns:1fr !important;
+      gap:34px !important;
+      text-align:center !important;
+    }
+    .hero-inner > div:first-child,
+    .hero-card{
+      grid-column:1 !important;
+      justify-self:center !important;
+    }
+    .hero-inner > div:first-child{grid-row:1 !important;}
+    .hero-card{grid-row:2 !important;max-width:460px !important;transform:none !important;}
+    .hero h1{font-size:clamp(64px, 14vw, 108px) !important;}
+    .hero-text{margin-left:auto !important;margin-right:auto !important;}
+    .hero-meta,.hero-actions{justify-content:center !important;}
+    .hero-photo-main{height:min(560px, 68vh) !important;min-height:460px !important;}
+  }
+
+  @media (max-width:560px){
+    .hero-inner{width:min(100% - 22px, 720px) !important;}
+    .hero h1{font-size:clamp(56px, 18vw, 92px) !important;}
+    .hero-photo-main{height:500px !important;min-height:0 !important;}
+  }
+</style>
