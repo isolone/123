@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-<style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=foRf5QrkCe7m8PJw4I8hC1AayM-HSR5cKb49KLsXgmFxjSVFdWTGf84_j62-ykkYCuDJek9xPFdCuDyqz98PboHou859xIU2LHa7Yd4l3C97SpOWfHLCUmbhVfPavaT4YX20ZyXDm_toMyrTi7xNmmcuN7lmPMJ7omUE7iqZvnp_iji1-xJNfyVZknEWegxEg_lwPcKdX5F9Vp2VfjkFGjYEPTJWV1ZYpH5z-8-IuXV-VsjHV8vUDxoJGUu1wtUu7MSkxTmayEYrpbVa5CmdcmP8CFUWqlD1JlXnhz97pxfZwCjZ4up_vvVyxcMRdhr1YgKUNg5aNUPTg7i7nWZWsLdfT5NR8PGHRb4JHDO7Ptvs8-_iIegOEm8w0nMEubpV" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDRiNGM3MjQzOGM1YWY5NmYyMWJmYTU2YSZmbj12aXRhbGl5X2RhcnlhX3dlZGRpbmdfaW52aXRlX3Y5X3N0b3J5X3Bob3RvX3NhbWVfc2l6ZS5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk0NTA3JnA9ZnMmY2lkPTEmc2lnPTAxZmUxNmEwMWUwYmQ4NWM2Yjc4YjE0ZWFjNGRkMjEzNzEyYjczZThhZmRiYWZiMDc3YzNhMDMwNzljOWE5ODkmdj0w"/><style>
     :root{
       --black:#050505;
       --wine:#65091b;
@@ -495,7 +495,7 @@
       display:block !important;
       border-radius:14px !important;
     }
-    .polaroid.two img{object-position:center 45% !important;}
+    .polaroid.two img{object-fit:contain !important; object-position:center center !important; background:#efe7db !important;}
 
     @media (max-width:980px){
       .hero-inner{
@@ -552,6 +552,76 @@
       .polaroid img{height:360px !important;}
     }
 </style>
+
+  <style id="final-story-photo-fix">
+    /* Финальная правка: две карточки истории одинакового размера, фото "сейчас" заполняет рамку как фото "тогда" */
+    #story .polaroids{
+      display:grid !important;
+      grid-template-columns:260px 260px !important;
+      gap:42px !important;
+      justify-content:center !important;
+      align-items:center !important;
+      padding:0 !important;
+    }
+    #story .polaroid,
+    #story .polaroid.one,
+    #story .polaroid.two{
+      width:260px !important;
+      max-width:260px !important;
+      min-width:260px !important;
+      padding:12px 12px 56px !important;
+      box-sizing:border-box !important;
+      background:#fffaf0 !important;
+    }
+    #story .polaroid.one{
+      justify-self:center !important;
+      transform:rotate(-3deg) !important;
+      margin-top:0 !important;
+    }
+    #story .polaroid.two{
+      justify-self:center !important;
+      transform:rotate(3deg) !important;
+      margin-top:54px !important;
+    }
+    #story .polaroid img,
+    #story .polaroid.two img{
+      display:block !important;
+      width:236px !important;
+      max-width:236px !important;
+      min-width:236px !important;
+      height:310px !important;
+      max-height:310px !important;
+      min-height:310px !important;
+      aspect-ratio:auto !important;
+      object-fit:cover !important;
+      object-position:center center !important;
+      background:transparent !important;
+      border-radius:14px !important;
+    }
+    @media (max-width:760px){
+      #story .polaroids{
+        grid-template-columns:1fr !important;
+        gap:22px !important;
+      }
+      #story .polaroid,
+      #story .polaroid.one,
+      #story .polaroid.two{
+        width:min(320px, 100%) !important;
+        max-width:320px !important;
+        min-width:0 !important;
+        margin:0 auto !important;
+      }
+      #story .polaroid img,
+      #story .polaroid.two img{
+        width:100% !important;
+        max-width:none !important;
+        min-width:0 !important;
+        height:360px !important;
+        max-height:360px !important;
+        min-height:360px !important;
+      }
+    }
+  </style>
 </head>
 <body>
 <nav aria-label="Навигация по сайту" class="topbar">
